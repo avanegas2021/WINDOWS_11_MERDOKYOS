@@ -1,6 +1,6 @@
 # Windows11-SystemProgramming-Documentation
 
-## Documentation Description
+## Documentation
 
 This project provides a detailed guide for installing and configuring Windows 11 in a virtualized environment
 using tools like VirtualBox or VMware. It walks through system requirements, ISO download, virtualization settings,
@@ -8,7 +8,7 @@ disk partitioning, and post-installation setup. The objective is to help users e
 stable Windows 11 environment for learning system-level programming, security testing, or application development.
 The guide follows best practices to ensure a clean, performant, and secure installation.
 
-## System-Call Description
+## System-Call
 
 This project also explores the use of the mlock() system call in C, which locks a process’s memory pages into RAM,
 preventing them from being paged to swap. This is crucial for high-security applications that handle sensitive data
