@@ -20,12 +20,19 @@ int main() {
 
     printf("Memory allocated successfully at address: %p\n", mem);
 
-    // Step 3: Use the allocated memory (example: initialize it)
+    // Step 3: Lock the memory in physical RAM (prevent it from being swapped out)
+    if (!VirtualLock(mem, size)) {
+        printf("VirtualLock failed: %lu\n", GetLastError());
+        VirtualFree(mem, 0, MEM_RELEASE);  // Clean up if locking fails
+        return 1;
+    }
+
+    printf("Memory locked into RAM successfully.\n");
+
+    // Step 4: Use the allocated memory (example: initialize it)
     memset(mem, 0x00, size); // Fill the memory with zeros
 
-    // You can now use 'mem' like a normal buffer...
-
-    // Step 4: Free the memory when done
+    // Step 5: Free the memory when done
     if (!VirtualFree(mem, 0, MEM_RELEASE)) {
         printf("VirtualFree failed: %lu\n", GetLastError());
         return 1;
